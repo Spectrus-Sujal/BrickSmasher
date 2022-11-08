@@ -114,4 +114,5 @@ void Ball::spawnBall(const int x, const int y)
 {
 	coordinate.x = x;
 	coordinate.y = y;
+	speed.y *= -1;
 }
