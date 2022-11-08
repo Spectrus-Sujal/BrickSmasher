@@ -12,11 +12,13 @@ private:
 
 public:
 
+	BrickWall();
+
 	BrickWall(std::vector<Brick>& w);
 
 	void drawBricks();
 
-	void resizeWalls(std::vector<Brick>& w);
+	void resizeWalls(const std::vector<Brick>& w);
 
 	void checkCollision(Ball& ball);
 };

@@ -40,6 +40,7 @@ std::string Brick::getBrickColor() const
 		case level::Red:
 			return "Red";
 
+		case level::Yellow:
 		default:
 			return "yellow";
 	}

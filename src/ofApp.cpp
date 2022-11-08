@@ -3,9 +3,10 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
+	walls.clear();
 	for (auto i{ 0 }; i < 14; ++i)
 	{
-		Point coordiante{ (ofGetWidth() / 14) * i, 0 };
+		Point coordiante{ ((ofGetWidth() / 14) * i) + 10, 0 };
 		Point size{ ofGetWidth() / 14, 20 };
 		walls.emplace_back(coordiante, size, Brick::level::Red);
 	}

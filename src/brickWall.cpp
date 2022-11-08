@@ -26,7 +26,8 @@ void BrickWall::checkCollision(Ball &ball)
 	}
 }
 
-void BrickWall::resizeWalls(std::vector<Brick>& w)
+void BrickWall::resizeWalls(const std::vector<Brick>& w)
 {
 	wall = w;
+	std::cout << "done\n";
 }
