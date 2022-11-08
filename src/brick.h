@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "point.h"
-#include "ofApp.h"
+#include "ofGraphics.h"
 
 class Brick
 {

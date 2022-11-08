@@ -4,7 +4,7 @@
 #include "point.h"
 #include "brick.h"
 #include "ball.h"
-//#include "brickWall.h"
+#include "brickWall.h"
 #include "player.h"
 
 
@@ -37,9 +37,9 @@ public:
 
 
 	Point co{ 500, 500 };
-	Point spe{ 3, 3 };
+	Point spe{ 10, 1 };
 
-	Ball balling{ co, spe, 5 };
+	Ball ball{ co, spe, 5 };
 
 	//Player player{ 2, 3, 100, 100, 5 };
 
@@ -53,8 +53,8 @@ public:
 	//Point spepp{ 80, 10 };
 	//Brick b3{ copp, spepp, Brick::level::Green };
 
-	//std::vector<Brick> wa{ b1, b2, b3 };
+	std::vector<Brick> walls;
 
-	//BrickWall bw{ wa};
+	BrickWall brickWall;
 
 };

@@ -3,23 +3,29 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-	Ball ball{ co, spe, 5 };
-	std::cout << ball.getX();
+	for (auto i{ 0 }; i < 14; ++i)
+	{
+		Point coordiante{ (ofGetWidth() / 14) * i, 0 };
+		Point size{ ofGetWidth() / 14, 20 };
+		walls.emplace_back(coordiante, size, Brick::level::Red);
+	}
+
+	brickWall.resizeWalls(walls);
 }
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
-	//ball.move();
-	//bw.checkCollision(ball);
+	ball.move();
+	brickWall.checkCollision(ball);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw()
 {
 	//player.drawPlayer();
-	/*bw.drawBricks();
-	ball.drawBall();*/
+	brickWall.drawBricks();
+	ball.drawBall();
 }
 
 //--------------------------------------------------------------

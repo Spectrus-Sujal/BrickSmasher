@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "Point.h"
-#include "ofApp.h"
+#include "ofGraphics.h"
 
 /**
  * \brief Player class which is used to contain all of the information of the player

@@ -31,7 +31,7 @@ int Ball::getX() const
 
 int Ball::getY() const
 {
-	return coordinate.x;
+	return coordinate.y;
 }
 
 int Ball::getRadius() const
@@ -50,16 +50,16 @@ void Ball::bounce()
 		speed.x *= -1;
 	}
 
-	//Check top
-	if (getY() + getRadius() >= ofGetHeight())
+	//Check top and bottom
+	if (getY() + getRadius() >= ofGetHeight() || getY() - getRadius() <= 0)
 	{
 		speed.y *= -1;
 	}
 
-	if(getY() <= 0)
-	{
-		//player.lose = true;
-	}
+	//if(getY() <= 0)
+	//{
+	//	//player.lose = true;
+	//}
 }
 
 void Ball::move()

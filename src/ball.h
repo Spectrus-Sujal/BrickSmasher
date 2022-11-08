@@ -1,7 +1,8 @@
 ﻿#pragma once
 
 #include "point.h"
-#include "ofApp.h"
+#include "ofGraphics.h"
+#include "ofAppRunner.h"
 
 /**
  * \brief The Ball that will be used by the player to destroy the bricks
