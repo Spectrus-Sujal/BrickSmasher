@@ -39,9 +39,9 @@ public:
 	Point co{ 500, 500 };
 	Point spe{ 3, 3 };
 
-	//Ball balling{ co, spe, 5 };
+	Ball balling{ co, spe, 5 };
 
-	Player player{ 2, 3, 100, 100, 5 };
+	//Player player{ 2, 3, 100, 100, 5 };
 
 	//Brick b1{ co, spe, Brick::level::Green };
 

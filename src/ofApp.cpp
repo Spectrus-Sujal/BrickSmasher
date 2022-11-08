@@ -3,7 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-	//Ball ball{ co, spe, 5 };
+	Ball ball{ co, spe, 5 };
+	std::cout << ball.getX();
 }
 
 //--------------------------------------------------------------
@@ -16,7 +17,7 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-	player.drawPlayer();
+	//player.drawPlayer();
 	/*bw.drawBricks();
 	ball.drawBall();*/
 }

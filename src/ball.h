@@ -10,7 +10,7 @@
 class Ball
 {
 private:
-	// Variabes used to determine the balls default values
+	// Variables used to determine the balls default values
 	Point coordinate;
 	Point speed;
 	int radius;
