@@ -27,6 +27,6 @@ public:
 
 	level getLvl() const;
 
-	std::string getBrickColor() const;
+	ofColor getBrickColor() const;
 
 };

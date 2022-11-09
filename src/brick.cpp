@@ -27,21 +27,21 @@ Brick::level Brick::getLvl() const
 	return lvl;
 }
 
-std::string Brick::getBrickColor() const
+ofColor Brick::getBrickColor() const
 {
 	switch(lvl)
 	{
 		case level::Green:
-			return "green";
+			return ofColor(51, 255, 51);
 
 		case level::Orange:
-			return "orange";
+			return ofColor(255, 179, 25);
 
 		case level::Red:
-			return "Red";
+			return ofColor(255, 25, 25);
 
 		case level::Yellow:
 		default:
-			return "yellow";
+			return ofColor(255, 255, 77);
 	}
 }

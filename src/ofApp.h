@@ -37,7 +37,7 @@ public:
 
 
 	Point co{ 500, 500 };
-	Point spe{ 10, 1 };
+	Point spe{ 10, -10 };
 
 	Ball ball{ co, spe, 5 };
 

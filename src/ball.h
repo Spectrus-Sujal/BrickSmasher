@@ -35,4 +35,8 @@ public:
 
 	//move the ball and check if it reaches an edge
 	void move();
+
+	void flipY();
+
+	void flipX();
 };

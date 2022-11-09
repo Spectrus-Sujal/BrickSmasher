@@ -46,14 +46,13 @@ void Ball::bounce()
 	//Check if the ball is near the left or right edge
 	if (getX() + getRadius() >= ofGetWidth() || getX() - getRadius() <= 0)
 	{
-		// make it go opposite direction
-		speed.x *= -1;
+		flipX();
 	}
 
 	//Check top and bottom
 	if (getY() + getRadius() >= ofGetHeight() || getY() - getRadius() <= 0)
 	{
-		speed.y *= -1;
+		flipY();
 	}
 
 	//if(getY() <= 0)
@@ -71,4 +70,35 @@ void Ball::move()
 
 	//check edges
 	bounce();
+
+	if(getY() + getRadius() < 0)
+	{
+		coordinate.y = 0 + getRadius();
+	}
+
+	if (getY() - getRadius() > ofGetHeight())
+	{
+		coordinate.y = ofGetHeight() - getRadius();
+	}
+
+	if (getX() + getRadius() < 0)
+	{
+		coordinate.x = 0 + getRadius();
+	}
+
+	if (getX() - getRadius() > ofGetWidth())
+	{
+		coordinate.x = ofGetWidth() - getRadius();
+	}
+}
+
+void Ball::flipY()
+{
+	speed.y *= -1;
+}
+
+void Ball::flipX()
+{
+	// make it go opposite direction
+	speed.x *= -1;
 }
