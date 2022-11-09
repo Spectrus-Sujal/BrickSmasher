@@ -8,14 +8,6 @@
 #include "player.h"
 
 
-//class player
-//{
-//	Point coordinate;
-//	int size;
-//	bool isHalf{ false };
-//};
-
-
 class ofApp : public ofBaseApp {
 
 public:
@@ -58,5 +50,7 @@ public:
 	std::vector<Brick> walls {b1, b2, b3};
 
 	BrickWall brickWall{walls};
+
+	Player player {500, 500, 50, 20, 10};
 
 };

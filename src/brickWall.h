@@ -2,6 +2,7 @@
 
 #include "brick.h"
 #include "ball.h"
+#include "player.h"
 #include "ofGraphics.h"
 
 class BrickWall
@@ -20,5 +21,5 @@ public:
 
 	void resizeWalls(const std::vector<Brick>& w);
 
-	void checkCollision(Ball& ball);
+	void checkCollision(Ball& ball, Player& player);
 };

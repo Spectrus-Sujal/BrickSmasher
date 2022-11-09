@@ -59,6 +59,17 @@ void Player::half()
  */
 void Player::drawPlayer() const
 {
+	ofSetColor(playerColor);
 	ofDrawRectangle(coordinate.x, coordinate.y, size.x, size.y);
+}
+
+int Player::getPoints() const
+{
+	return points;
+}
+
+void Player::increasePoints(int delta)
+{
+	points += delta;
 }
 

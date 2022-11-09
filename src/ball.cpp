@@ -19,6 +19,7 @@ Ball::Ball(int cx, int cy, int sx, int sy, int r)
 void Ball::drawBall() const
 {
 	// Circle at the ball's position with the radius
+	ofSetColor(200);
 	ofDrawCircle(getX(), getY(), getRadius());
 }
 

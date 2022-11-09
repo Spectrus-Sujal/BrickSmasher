@@ -6,13 +6,15 @@
 /**
  * \brief Player class which is used to contain all of the information of the player
  */
-class Player
+class Player 
 {
 private:
 	Point coordinate;
 	Point size;
 	int speed;
+	int points = 0;
 	bool isHalf = false;
+	ofColor playerColor;
 
 public:
 	bool lose = false;
@@ -23,6 +25,9 @@ public:
 	void move(bool moveLeft);
 
 	void half();
+
+	void increasePoints(int delta);
+	int getPoints() const;
 
 	void drawPlayer() const;
 };

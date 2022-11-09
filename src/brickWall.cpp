@@ -12,32 +12,16 @@ void BrickWall::drawBricks()
 	}
 }
 
-void BrickWall::checkCollision(Ball &ball)
+void BrickWall::checkCollision(Ball &ball, Player& player)
 {
 	for (auto b{ 0 }; b < wall.size(); ++b)
 	{
-		bool first = (ball.getX() + ball.getRadius() >= wall[b].getX()) && (ball.getY() + ball.getRadius() >= wall[b].getY());
-		bool second = (ball.getX() - ball.getRadius() <= wall[b].getX() + wall[b].getSizeX()) && (ball.getY() - ball.getRadius() <= wall[b].getY() + wall[b].getSizeY());
-
-		if (first && second)
+		if (wall[b].checkCollision(ball))
 		{
-			if(ball.getX() + ball.getRadius() > wall[b].getX() + wall[b].getSizeX())
-			{
-				ball.flipX();
-			}
-			else if (ball.getX() - ball.getRadius() < wall[b].getX())
-			{
-				ball.flipX();
-			}
+			wall[b].doCollision(ball);
 
-			if (ball.getY() + ball.getRadius() > wall[b].getY() + wall[b].getSizeY())
-			{
-				ball.flipY();
-			}
-			else if (ball.getY() - ball.getRadius() < wall[b].getY())
-			{
-				ball.flipY();
-			}
+			player.increasePoints(wall[b].getPoints());
+			std::cout << player.getPoints() << "\n";
 
 			wall.erase(wall.begin() + b);
 			break;

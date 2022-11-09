@@ -7,11 +7,36 @@ void ofApp::setup()
 
 	for(auto walling {0}; walling < 8; ++walling)
 	{
+		Brick::level lvl;
+		switch(walling)
+		{
+			case 0:
+			case 1:
+				lvl = Brick::level::Red;
+				break;
+
+			case 2:
+			case 3:
+				lvl = Brick::level::Orange;
+				break;
+
+			case 4:
+			case 5:
+				lvl = Brick::level::Green;
+				break;
+
+			case 6:
+			case 7:
+				lvl = Brick::level::Yellow;
+				break;
+		}
+
 		for (auto i{ 0 }; i < 14; ++i)
 		{
-			Point coordiante{ ((ofGetWidth() / 14) * i) + 10, (20 * walling)};
-			Point size{ 50, 10 };
-			walls.emplace_back(coordiante, size, Brick::level::Red);
+			Point coordiante{ ((ofGetWidth() / 14) * i) + 3, (20 * walling)};
+			Point size{ (ofGetWidth() / 15) , 10 };
+			
+			walls.emplace_back(coordiante, size, lvl);
 		}
 	}
 
@@ -22,13 +47,13 @@ void ofApp::setup()
 void ofApp::update()
 {
 	ball.move();
-	brickWall.checkCollision(ball);
+	brickWall.checkCollision(ball, player);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-	//player.drawPlayer();
+	player.drawPlayer();
 	brickWall.drawBricks();
 	ball.drawBall();
 }
