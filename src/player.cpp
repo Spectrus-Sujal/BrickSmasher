@@ -7,7 +7,7 @@
  * \param si Size x,y
  * \param sp Horizontal Speed
  */
-Player::Player(const Point& c, const Point& si, int sp) : coordinate{c}, size {si}, speed {sp} {}
+Player::Player(const Point& c, const Point& si, int sp) : Paddle{c, si}, speed{sp} {}
 
 /**
  * \brief Constructor for Player using only ints
@@ -17,12 +17,8 @@ Player::Player(const Point& c, const Point& si, int sp) : coordinate{c}, size {s
  * \param siy Size y
  * \param sp Horizontal Speed
  */
-Player::Player(int cx, int cy, int six, int siy, int sp)
+Player::Player(int cx, int cy, int six, int siy, int sp) : Paddle { cx, cy, six, siy }
 {
-	coordinate.x = cx;
-	coordinate.y = cy;
-	size.x = six;
-	size.y = siy;
 	speed = sp;
 }
 
@@ -39,7 +35,17 @@ void Player::move(bool moveLeft)
 		direction = -1;
 	}
 
-	coordinate.x += speed * direction;
+	changeX(speed * direction);
+
+	if (getX() < 0)
+	{
+		changeX(0 - getX());
+	}
+
+	if (getX() + getSizeX() > ofGetWidth())
+	{
+		changeX(ofGetWidth() - (getX() + getSizeX()));
+	}
 }
 
 /**
@@ -49,7 +55,7 @@ void Player::half()
 {
 	if(!isHalf)
 	{
-		size.x /= 2;
+		changeSizeX( getSizeX() / 2);
 		isHalf = true;
 	}
 }
@@ -60,7 +66,7 @@ void Player::half()
 void Player::drawPlayer() const
 {
 	ofSetColor(playerColor);
-	ofDrawRectangle(coordinate.x, coordinate.y, size.x, size.y);
+	ofDrawRectangle(getX(), getY(), getSizeX(), getSizeY());
 }
 
 int Player::getPoints() const
@@ -73,3 +79,10 @@ void Player::increasePoints(int delta)
 	points += delta;
 }
 
+void Player::checkCollision(Ball& ball) const
+{
+	if (Paddle::checkCollision(ball))
+	{
+		Paddle::doCollision(ball);
+	}
+}

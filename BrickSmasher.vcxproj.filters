@@ -19,6 +19,9 @@
     <ClCompile Include="src\player.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\paddle.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -27,9 +30,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="point.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\brick.h">
@@ -42,6 +42,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\player.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\point.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\paddle.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

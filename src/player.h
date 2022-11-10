@@ -1,16 +1,15 @@
 ﻿#pragma once
 
-#include "Point.h"
+#include "point.h"
+#include "paddle.h"
 #include "ofGraphics.h"
 
 /**
  * \brief Player class which is used to contain all of the information of the player
  */
-class Player 
+class Player : Paddle
 {
 private:
-	Point coordinate;
-	Point size;
 	int speed;
 	int points = 0;
 	bool isHalf = false;
@@ -27,7 +26,12 @@ public:
 	void half();
 
 	void increasePoints(int delta);
+
 	int getPoints() const;
 
 	void drawPlayer() const;
+
+	void checkCollision(Ball& ball) const;
+
+
 };

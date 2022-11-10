@@ -185,15 +185,17 @@
     <ClCompile Include="src\brickWall.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
+    <ClCompile Include="src\paddle.cpp" />
     <ClCompile Include="src\player.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="point.h" />
     <ClInclude Include="src\ball.h" />
     <ClInclude Include="src\brick.h" />
     <ClInclude Include="src\brickWall.h" />
     <ClInclude Include="src\ofApp.h" />
+    <ClInclude Include="src\paddle.h" />
     <ClInclude Include="src\player.h" />
+    <ClInclude Include="src\point.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

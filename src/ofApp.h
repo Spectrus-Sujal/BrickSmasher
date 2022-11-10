@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "point.h"
+#include "paddle.h"
 #include "brick.h"
 #include "ball.h"
 #include "brickWall.h"
@@ -29,28 +30,14 @@ public:
 
 
 	Point co{ 500, 500 };
-	Point spe{ 10, -10 };
+	Point spe{ 2, -2 };
 
 	Ball ball{ co, spe, 5 };
 
-	//Player player{ 2, 3, 100, 100, 5 };
-	
-	Point co0{ 0, 0 };
-	Point spee{ ofGetWidth() / 14, 20 };
-	Brick b1{ co, spe, Brick::level::Green };
-
-	Point cop{ ofGetWidth() / 14 + 2 , 0 };
-	Point spep{ ofGetWidth() / 14, 20 };
-	Brick b2{ cop, spep, Brick::level::Green };
-
-	Point copp{ (ofGetWidth() / 14) * 2 + 2, 0 };
-	Point spepp{ ofGetWidth() / 14, 20 };
-	Brick b3{ copp, spepp, Brick::level::Green };
-
-	std::vector<Brick> walls {b1, b2, b3};
+	std::vector<Brick> walls;
 
 	BrickWall brickWall{walls};
 
-	Player player {500, 500, 50, 20, 10};
+	Player player {500, ofGetHeight() - 20, 100, 20, 20};
 
 };

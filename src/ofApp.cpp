@@ -48,6 +48,7 @@ void ofApp::update()
 {
 	ball.move();
 	brickWall.checkCollision(ball, player);
+	player.checkCollision(ball);
 }
 
 //--------------------------------------------------------------
@@ -59,8 +60,17 @@ void ofApp::draw()
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key) {
+void ofApp::keyPressed(int key) 
+{
+	if (key == 'a' || key == 'A')
+	{
+		player.move(true);
+	}
 
+	if (key == 'd' || key == 'D')
+	{
+		player.move(false);
+	}
 }
 
 //--------------------------------------------------------------
