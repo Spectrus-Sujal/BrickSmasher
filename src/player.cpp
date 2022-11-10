@@ -46,6 +46,7 @@ void Player::move(bool moveLeft)
 	{
 		changeX(ofGetWidth() - (getX() + getSizeX()));
 	}
+
 }
 
 /**
@@ -55,9 +56,14 @@ void Player::half()
 {
 	if(!isHalf)
 	{
-		changeSizeX( getSizeX() / 2);
+		changeSizeX( -(getSizeX() / 2));
 		isHalf = true;
 	}
+}
+
+bool Player::getIsHalf() const
+{
+	return isHalf;
 }
 
 /**
@@ -79,10 +85,20 @@ void Player::increasePoints(int delta)
 	points += delta;
 }
 
-void Player::checkCollision(Ball& ball) const
+void Player::checkCollision(Ball& ball)
 {
 	if (Paddle::checkCollision(ball))
 	{
 		Paddle::doCollision(ball);
 	}
+}
+
+void Player::decreaseLives()
+{
+	lives--;
+}
+
+int Player::getLives() const
+{
+	return lives;
 }

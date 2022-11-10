@@ -15,6 +15,7 @@ private:
 	Point coordinate;
 	Point speed;
 	int radius;
+	bool firstTopBounce{ true };
 
 	//method to check if the ball has hit an edge
 	void bounce();
@@ -32,6 +33,7 @@ public:
 	int getX() const;
 	int getY() const;
 	int getRadius() const;
+	bool getFirstTopBounce() const;
 
 	//move the ball and check if it reaches an edge
 	void move();
@@ -39,4 +41,8 @@ public:
 	void flipY();
 
 	void flipX();
+
+	void increaseSpeed();
+
+	void spawnBall(const int x, const int y);
 };

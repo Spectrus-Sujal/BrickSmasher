@@ -23,6 +23,28 @@ void BrickWall::checkCollision(Ball &ball, Player& player)
 			player.increasePoints(wall[b].getPoints());
 			std::cout << player.getPoints() << "\n";
 
+			bricksDestroyed++;
+
+			if (bricksDestroyed == 4)
+			{
+				ball.increaseSpeed();
+			}
+			else if (bricksDestroyed == 12)
+			{
+				ball.increaseSpeed();
+			}
+
+			if (firstOrange && wall[b].getLvl() == Brick::level::Orange)
+			{
+				ball.increaseSpeed();
+				firstOrange = false;
+			}
+			else if (firstRed && wall[b].getLvl() == Brick::level::Red)
+			{
+				ball.increaseSpeed();
+				firstRed = false;
+			}
+
 			wall.erase(wall.begin() + b);
 			break;
 		}
@@ -33,4 +55,9 @@ void BrickWall::resizeWalls(const std::vector<Brick>& w)
 {
 	wall = w;
 	std::cout << "done\n";
+}
+
+int BrickWall::getBricksDestroyed() const
+{
+	return bricksDestroyed;
 }

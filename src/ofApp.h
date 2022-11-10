@@ -28,16 +28,23 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
+	void resetBricks(std::vector<Brick>& bricks);
 
-	Point co{ 500, 500 };
-	Point spe{ 2, -2 };
 
-	Ball ball{ co, spe, 5 };
+	Point coord{ 500, 500 };
+	Point speed{ 2, -2 };
+
+	Ball ball{ coord, speed, 5 };
 
 	std::vector<Brick> walls;
 
 	BrickWall brickWall{walls};
 
-	Player player {500, ofGetHeight() - 20, 100, 20, 20};
+	int playerStart{500};
+	int playerSizeX{100};
+	int playerSizeY{20};
+	int playerSpeed{ 20 };
+
+	Player player {playerStart, ofGetHeight() - playerSizeY, playerSizeX, playerSizeY, playerSpeed};
 
 };

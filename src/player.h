@@ -14,9 +14,9 @@ private:
 	int points = 0;
 	bool isHalf = false;
 	ofColor playerColor;
+	int lives = 3;
 
 public:
-	bool lose = false;
 
 	Player(const Point &c, const Point &si, int sp);
 	Player(int cx, int cy, int six, int siy, int sp);
@@ -27,11 +27,15 @@ public:
 
 	void increasePoints(int delta);
 
+	void decreaseLives();
+	int getLives() const;
+
+	bool getIsHalf() const;
+
 	int getPoints() const;
 
 	void drawPlayer() const;
 
-	void checkCollision(Ball& ball) const;
-
+	void checkCollision(Ball& ball);
 
 };

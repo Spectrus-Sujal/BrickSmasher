@@ -51,15 +51,16 @@ void Ball::bounce()
 	}
 
 	//Check top and bottom
-	if (getY() + getRadius() >= ofGetHeight() || getY() - getRadius() <= 0)
+	if (getY() - getRadius() <= 0)
 	{
 		flipY();
+		firstTopBounce = false;
 	}
+}
 
-	//if(getY() <= 0)
-	//{
-	//	//player.lose = true;
-	//}
+bool Ball::getFirstTopBounce() const
+{
+	return firstTopBounce;
 }
 
 void Ball::move()
@@ -102,4 +103,15 @@ void Ball::flipX()
 {
 	// make it go opposite direction
 	speed.x *= -1;
+}
+
+void Ball::increaseSpeed()
+{
+	speed.x *= 1.4;
+}
+
+void Ball::spawnBall(const int x, const int y)
+{
+	coordinate.x = x;
+	coordinate.y = y;
 }

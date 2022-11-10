@@ -3,50 +3,67 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-	walls.clear();
+	resetBricks(walls);
 
-	for(auto walling {0}; walling < 8; ++walling)
+	brickWall.resizeWalls(walls);
+}
+
+void ofApp::resetBricks(std::vector<Brick>& bricks)
+{
+	bricks.clear();
+
+	for (auto walling{ 0 }; walling < 8; ++walling)
 	{
 		Brick::level lvl;
-		switch(walling)
+		switch (walling)
 		{
-			case 0:
-			case 1:
-				lvl = Brick::level::Red;
-				break;
+		case 0:
+		case 1:
+			lvl = Brick::level::Red;
+			break;
 
-			case 2:
-			case 3:
-				lvl = Brick::level::Orange;
-				break;
+		case 2:
+		case 3:
+			lvl = Brick::level::Orange;
+			break;
 
-			case 4:
-			case 5:
-				lvl = Brick::level::Green;
-				break;
+		case 4:
+		case 5:
+			lvl = Brick::level::Green;
+			break;
 
-			case 6:
-			case 7:
-				lvl = Brick::level::Yellow;
-				break;
+		case 6:
+		case 7:
+			lvl = Brick::level::Yellow;
+			break;
 		}
 
 		for (auto i{ 0 }; i < 14; ++i)
 		{
-			Point coordiante{ ((ofGetWidth() / 14) * i) + 3, (20 * walling)};
+			Point coordiante{ ((ofGetWidth() / 14) * i) + 3, (20 * walling) };
 			Point size{ (ofGetWidth() / 15) , 10 };
-			
-			walls.emplace_back(coordiante, size, lvl);
+
+			bricks.emplace_back(coordiante, size, lvl);
 		}
 	}
-
-	brickWall.resizeWalls(walls);
 }
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
 	ball.move();
+
+	if (ball.getY() - ball.getRadius() >= ofGetHeight())
+	{
+		player.decreaseLives();
+		ball.spawnBall(ofGetWidth() / 2, ofGetHeight() / 2);
+	}
+
+	if (!player.getIsHalf() && !ball.getFirstTopBounce())
+	{
+		player.half();
+	}
+
 	brickWall.checkCollision(ball, player);
 	player.checkCollision(ball);
 }
