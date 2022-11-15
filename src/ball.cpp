@@ -54,13 +54,7 @@ void Ball::bounce()
 	if (getY() - getRadius() <= 0)
 	{
 		flipY();
-		firstTopBounce = false;
 	}
-}
-
-bool Ball::getFirstTopBounce() const
-{
-	return firstTopBounce;
 }
 
 void Ball::move()

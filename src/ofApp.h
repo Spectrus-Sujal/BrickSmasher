@@ -7,6 +7,7 @@
 #include "ball.h"
 #include "brickWall.h"
 #include "player.h"
+#include "rules.h"
 
 
 class ofApp : public ofBaseApp {
@@ -46,5 +47,7 @@ public:
 	int playerSpeed{ 20 };
 
 	Player player {playerStart, ofGetHeight() - playerSizeY, playerSizeX, playerSizeY, playerSpeed};
+
+	Rules gameRules {};
 
 };

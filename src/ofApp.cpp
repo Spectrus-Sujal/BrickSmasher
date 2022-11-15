@@ -51,21 +51,13 @@ void ofApp::resetBricks(std::vector<Brick>& bricks)
 //--------------------------------------------------------------
 void ofApp::update()
 {
-	ball.move();
-
-	if (ball.getY() - ball.getRadius() >= ofGetHeight())
+	if (gameRules.getIsPlaying())
 	{
-		player.decreaseLives();
-		ball.spawnBall(ofGetWidth() / 2, ofGetHeight() / 2);
+		ball.move();
+		brickWall.checkCollision(ball, player);
+		player.checkCollision(ball);
+		gameRules.update(brickWall, ball, player);
 	}
-
-	if (!player.getIsHalf() && !ball.getFirstTopBounce())
-	{
-		player.half();
-	}
-
-	brickWall.checkCollision(ball, player);
-	player.checkCollision(ball);
 }
 
 //--------------------------------------------------------------

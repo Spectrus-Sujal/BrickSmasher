@@ -61,11 +61,6 @@ void Player::half()
 	}
 }
 
-bool Player::getIsHalf() const
-{
-	return isHalf;
-}
-
 /**
  * \brief Draw the player as a rectangle on the canvas using Coordinate and Size
  */
@@ -91,14 +86,4 @@ void Player::checkCollision(Ball& ball)
 	{
 		Paddle::doCollision(ball);
 	}
-}
-
-void Player::decreaseLives()
-{
-	lives--;
-}
-
-int Player::getLives() const
-{
-	return lives;
 }

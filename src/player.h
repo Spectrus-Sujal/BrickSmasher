@@ -14,7 +14,6 @@ private:
 	int points = 0;
 	bool isHalf = false;
 	ofColor playerColor;
-	int lives = 3;
 
 public:
 
@@ -26,12 +25,6 @@ public:
 	void half();
 
 	void increasePoints(int delta);
-
-	void decreaseLives();
-	int getLives() const;
-
-	bool getIsHalf() const;
-
 	int getPoints() const;
 
 	void drawPlayer() const;

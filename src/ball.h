@@ -15,7 +15,6 @@ private:
 	Point coordinate;
 	Point speed;
 	int radius;
-	bool firstTopBounce{ true };
 
 	//method to check if the ball has hit an edge
 	void bounce();

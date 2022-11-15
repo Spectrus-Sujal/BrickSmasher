@@ -2,6 +2,7 @@
 
 #include "brick.h"
 #include "ball.h"
+#include "brick.h"
 #include "player.h"
 #include "ofGraphics.h"
 
@@ -14,6 +15,8 @@ private:
 	bool firstOrange {true};
 	bool firstRed{ true };
 
+	Brick lastBrickDestroyed {0, 0, 0, 0, Brick::level::Yellow};
+
 public:
 
 	BrickWall(std::vector<Brick>& w);
@@ -21,6 +24,7 @@ public:
 	void drawBricks();
 
 	int getBricksDestroyed() const;
+	Brick getLastDestroyedBrick() const;
 
 	void resizeWalls(const std::vector<Brick>& w);
 
