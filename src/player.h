@@ -24,9 +24,6 @@ public:
 
 	void half();
 
-	void increasePoints(int delta);
-	int getPoints() const;
-
 	void drawPlayer() const;
 
 	void checkCollision(Ball& ball);

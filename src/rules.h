@@ -20,9 +20,12 @@ private:
 	bool firstRed {true};
 
 	int lives{ 3 };
+	int points{ 0 };
+
+	void increasePoints(int delta);
 
 	void checkBall(Ball& ball, Player& player);
-	void checkBricks(BrickWall& bw, Ball& ball);
+	void checkBricks(BrickWall& bw, Ball& ball, Player& player);
 	void checkState();
 
 	void loseGame();

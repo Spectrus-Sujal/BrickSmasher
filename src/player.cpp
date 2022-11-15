@@ -70,16 +70,6 @@ void Player::drawPlayer() const
 	ofDrawRectangle(getX(), getY(), getSizeX(), getSizeY());
 }
 
-int Player::getPoints() const
-{
-	return points;
-}
-
-void Player::increasePoints(int delta)
-{
-	points += delta;
-}
-
 void Player::checkCollision(Ball& ball)
 {
 	if (Paddle::checkCollision(ball))

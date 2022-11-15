@@ -1,10 +1,7 @@
 ﻿
 #include "rules.h"
 
-Rules::Rules()
-{
-	
-}
+Rules::Rules(){}
 
 void Rules::update(BrickWall& bw, Ball& ball, Player& player)
 {
@@ -12,7 +9,7 @@ void Rules::update(BrickWall& bw, Ball& ball, Player& player)
 
 	if(destroyedBricks != bw.getBricksDestroyed())
 	{
-		checkBricks(bw, ball);
+		checkBricks(bw, ball, player);
 	}
 
 	checkState();
@@ -20,7 +17,7 @@ void Rules::update(BrickWall& bw, Ball& ball, Player& player)
 
 void Rules::checkBall(Ball& ball, Player& player)
 {
-	if (firstTopBounce && ball.getY() + ball.getRadius() <= 0)
+	if (firstTopBounce && ball.getY() - ball.getRadius() <= 0)
 	{
 		player.half();
 		firstTopBounce = false;
@@ -33,7 +30,7 @@ void Rules::checkBall(Ball& ball, Player& player)
 	}
 }
 
-void Rules::checkBricks(BrickWall& bw, Ball& ball)
+void Rules::checkBricks(BrickWall& bw, Ball& ball,Player& player)
 {
 	destroyedBricks = bw.getBricksDestroyed();
 
@@ -58,6 +55,8 @@ void Rules::checkBricks(BrickWall& bw, Ball& ball)
 		ball.increaseSpeed();
 		firstRed = false;
 	}
+
+	increasePoints(bw.getLastDestroyedBrick().getPoints());
 }
 
 bool Rules::getIsPlaying() const
@@ -70,9 +69,10 @@ void Rules::checkState()
 {
 	if(lives <= 0)
 	{
-		//loseGame();
+		loseGame();
 	}
-	else if(destroyedBricks == 112)
+
+	if(destroyedBricks >= 112)
 	{
 		winGame();
 	}
@@ -86,6 +86,11 @@ void Rules::loseGame()
 
 void Rules::winGame()
 {
-	std::cout << "Game Won \n";
+	std::cout << "Game Won\n";
 	isPlaying = false;
+}
+
+void Rules::increasePoints(int delta)
+{
+	points += delta;
 }

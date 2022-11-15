@@ -72,11 +72,6 @@ void Ball::move()
 		coordinate.y = 0 + getRadius();
 	}
 
-	if (getY() - getRadius() > ofGetHeight())
-	{
-		coordinate.y = ofGetHeight() - getRadius();
-	}
-
 	if (getX() + getRadius() < 0)
 	{
 		coordinate.x = 0 + getRadius();

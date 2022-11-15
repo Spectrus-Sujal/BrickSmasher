@@ -20,8 +20,6 @@ void BrickWall::checkCollision(Ball &ball, Player& player)
 		{
 			wall[b].doCollision(ball);
 
-			player.increasePoints(wall[b].getPoints());
-
 			bricksDestroyed++;
 
 			lastBrickDestroyed = wall[b];
