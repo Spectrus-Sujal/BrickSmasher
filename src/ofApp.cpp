@@ -106,12 +106,12 @@ void ofApp::keyReleased(int key) {
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y) {
-
+	player.move(mouseX);
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button) {
-
+	
 }
 
 //--------------------------------------------------------------

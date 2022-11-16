@@ -49,6 +49,15 @@ void Player::move(bool moveLeft)
 
 }
 
+void Player::move(int x)
+{
+	if ((x + (getSizeX() / 2) <= ofGetWidth()) && x - (getSizeX() / 2) >= 0)
+	{
+		changeX(x - (getX() + getSizeX() / 2));
+	}
+}
+
+
 /**
  * \brief Method used to decrease the player's size by half
  */

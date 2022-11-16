@@ -22,6 +22,8 @@ public:
 
 	void move(bool moveLeft);
 
+	void move(int x);
+
 	void half();
 
 	void drawPlayer() const;
