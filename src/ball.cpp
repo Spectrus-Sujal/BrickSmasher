@@ -96,7 +96,7 @@ void Ball::flipX()
 
 void Ball::increaseSpeed()
 {
-	speed.x *= 1.4;
+	speed.x *= 1.2;
 }
 
 void Ball::spawnBall(const int x, const int y)

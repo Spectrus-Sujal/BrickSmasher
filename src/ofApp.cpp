@@ -66,6 +66,7 @@ void ofApp::draw()
 	player.drawPlayer();
 	brickWall.drawBricks();
 	ball.drawBall();
+	gameRules.showStats();
 }
 
 //--------------------------------------------------------------

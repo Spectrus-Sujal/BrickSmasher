@@ -94,3 +94,9 @@ void Rules::increasePoints(int delta)
 {
 	points += delta;
 }
+
+void Rules::showStats() const
+{
+	ofDrawBitmapString("Scores: " + std::to_string(points), 0, ofGetHeight() * 0.90);
+	ofDrawBitmapString("Lives: " + std::to_string(lives), 0, ofGetHeight() * 0.95);
+}

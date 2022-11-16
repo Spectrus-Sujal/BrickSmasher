@@ -37,6 +37,8 @@ public:
 
 	bool getIsPlaying() const;
 
+	void showStats() const;
+
 	void update(BrickWall& bw, Ball& ball, Player& player);
 
 };
