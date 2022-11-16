@@ -2,9 +2,7 @@
 
 #include "ball.h"
 #include "player.h"
-#include "brick.h"
 #include "brickWall.h"
-#include "ofGraphics.h"
 
 class Rules
 {

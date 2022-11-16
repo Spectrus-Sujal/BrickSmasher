@@ -111,7 +111,7 @@ void Rules::displayScreen(bool instructions) const
 	{
 		ofDrawBitmapString("You have " + endStatus, ofGetWidth() * 0.45, ofGetHeight() * 0.40);
 		ofDrawBitmapString("Press S to start the game", ofGetWidth() * 0.25, ofGetHeight() * 0.70);
-		ofDrawBitmapString("Press I to see Instructions", ofGetWidth() * 0.55, ofGetHeight() * 0.70);
+		ofDrawBitmapString("Press I to see Instructions", ofGetWidth() * 0.65, ofGetHeight() * 0.70);
 	}
 }
 

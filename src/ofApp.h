@@ -53,6 +53,7 @@ public:
 
 	void initialize()
 	{
+		brickWall = BrickWall{ walls };
 		ball = Ball{ coord, speed, ballSize };
 		player = Player{ playerStart, ofGetHeight() - playerSizeY, playerSizeX, playerSizeY, playerSpeed };
 	}
