@@ -34,8 +34,9 @@ public:
 
 	Point coord{ 500, 500 };
 	Point speed{ 2, -2 };
+	int ballSize{ 5 };
 
-	Ball ball{ coord, speed, 5 };
+	Ball ball{ coord, speed, ballSize };
 
 	std::vector<Brick> walls;
 
@@ -49,5 +50,11 @@ public:
 	Player player {playerStart, ofGetHeight() - playerSizeY, playerSizeX, playerSizeY, playerSpeed};
 
 	Rules gameRules {};
+
+	void initialize()
+	{
+		ball = Ball{ coord, speed, ballSize };
+		player = Player{ playerStart, ofGetHeight() - playerSizeY, playerSizeX, playerSizeY, playerSpeed };
+	}
 
 };

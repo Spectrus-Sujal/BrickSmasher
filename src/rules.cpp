@@ -80,13 +80,13 @@ void Rules::checkState()
 
 void Rules::loseGame()
 {
-	std::cout << "Game Lost \n";
+	endStatus = "Lost\n";
 	isPlaying = false;
 }
 
 void Rules::winGame()
 {
-	std::cout << "Game Won\n";
+	endStatus = "Won\n";
 	isPlaying = false;
 }
 
@@ -100,3 +100,22 @@ void Rules::showStats() const
 	ofDrawBitmapString("Scores: " + std::to_string(points), 0, ofGetHeight() * 0.90);
 	ofDrawBitmapString("Lives: " + std::to_string(lives), 0, ofGetHeight() * 0.95);
 }
+
+void Rules::displayScreen() const
+{
+	ofDrawBitmapString("You have " + endStatus, ofGetWidth() * 0.45, ofGetHeight() * 0.40);
+	ofDrawBitmapString("Press S to start the game", ofGetWidth() * 0.25, ofGetHeight() * 0.70);
+	ofDrawBitmapString("Press I to see Instructions", ofGetWidth() * 0.55, ofGetHeight() * 0.70);	
+}
+
+void Rules::startGame()
+{
+	isPlaying = true;
+	points = 0;
+	lives = 3;
+	destroyedBricks = 0;
+	firstTopBounce = true;
+	firstOrange = true;
+	firstRed = true;
+}
+

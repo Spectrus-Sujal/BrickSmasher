@@ -3,9 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-	resetBricks(walls);
 
-	brickWall.resizeWalls(walls);
 }
 
 void ofApp::resetBricks(std::vector<Brick>& bricks)
@@ -63,10 +61,17 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-	player.drawPlayer();
-	brickWall.drawBricks();
-	ball.drawBall();
-	gameRules.showStats();
+	if (gameRules.getIsPlaying())
+	{
+		player.drawPlayer();
+		brickWall.drawBricks();
+		ball.drawBall();
+		gameRules.showStats();
+	}
+	else
+	{
+		gameRules.displayScreen();
+	}
 }
 
 //--------------------------------------------------------------
@@ -80,6 +85,17 @@ void ofApp::keyPressed(int key)
 	if (key == 'd' || key == 'D')
 	{
 		player.move(false);
+	}
+
+	if(!gameRules.getIsPlaying() && (key == 's' || key == 'S'))
+	{
+		resetBricks(walls);
+		brickWall.resizeWalls(walls);
+
+		gameRules.startGame();
+
+		initialize();
+
 	}
 }
 

@@ -10,7 +10,7 @@ class Rules
 {
 private:
 
-	bool isPlaying {true};
+	bool isPlaying {false};
 
 	bool firstTopBounce{ true };
 
@@ -21,6 +21,8 @@ private:
 
 	int lives{ 3 };
 	int points{ 0 };
+
+	std::string endStatus{ "Begun" };
 
 	void increasePoints(int delta);
 
@@ -38,6 +40,10 @@ public:
 	bool getIsPlaying() const;
 
 	void showStats() const;
+
+	void displayScreen() const;
+
+	void startGame();
 
 	void update(BrickWall& bw, Ball& ball, Player& player);
 
