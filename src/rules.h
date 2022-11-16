@@ -41,7 +41,8 @@ public:
 
 	void showStats() const;
 
-	void displayScreen() const;
+	void displayScreen(bool instructions) const;
+	void displayInstructions() const;
 
 	void startGame();
 

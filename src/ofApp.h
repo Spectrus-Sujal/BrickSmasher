@@ -57,4 +57,6 @@ public:
 		player = Player{ playerStart, ofGetHeight() - playerSizeY, playerSizeX, playerSizeY, playerSpeed };
 	}
 
+	bool displayInstruction{ false };
+
 };

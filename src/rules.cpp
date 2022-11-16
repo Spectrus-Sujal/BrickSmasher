@@ -101,12 +101,29 @@ void Rules::showStats() const
 	ofDrawBitmapString("Lives: " + std::to_string(lives), 0, ofGetHeight() * 0.95);
 }
 
-void Rules::displayScreen() const
+void Rules::displayScreen(bool instructions) const
 {
-	ofDrawBitmapString("You have " + endStatus, ofGetWidth() * 0.45, ofGetHeight() * 0.40);
-	ofDrawBitmapString("Press S to start the game", ofGetWidth() * 0.25, ofGetHeight() * 0.70);
-	ofDrawBitmapString("Press I to see Instructions", ofGetWidth() * 0.55, ofGetHeight() * 0.70);	
+	if(instructions)
+	{
+		displayInstructions();
+	}
+	else
+	{
+		ofDrawBitmapString("You have " + endStatus, ofGetWidth() * 0.45, ofGetHeight() * 0.40);
+		ofDrawBitmapString("Press S to start the game", ofGetWidth() * 0.25, ofGetHeight() * 0.70);
+		ofDrawBitmapString("Press I to see Instructions", ofGetWidth() * 0.55, ofGetHeight() * 0.70);
+	}
 }
+
+void Rules::displayInstructions() const
+{
+	ofDrawBitmapString("Use A and D to move the paddle left and right ", ofGetWidth() * 0.20, ofGetHeight() * 0.10);
+	ofDrawBitmapString("You can also move the mouse to move the paddle left and right", ofGetWidth() * 0.20, ofGetHeight() * 0.30);
+	ofDrawBitmapString("Try to destroy all the bricks byb bouncing the ball off of the paddle", ofGetWidth() * 0.20, ofGetHeight() * 0.50);
+	ofDrawBitmapString("Make sure to not let the ball touch the ground as you will lose a life", ofGetWidth() * 0.20, ofGetHeight() * 0.70);
+	ofDrawBitmapString("Press S to start the game", ofGetWidth() * 0.20, ofGetHeight() * 0.90);
+}
+
 
 void Rules::startGame()
 {

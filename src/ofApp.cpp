@@ -70,7 +70,7 @@ void ofApp::draw()
 	}
 	else
 	{
-		gameRules.displayScreen();
+		gameRules.displayScreen(displayInstruction);
 	}
 }
 
@@ -96,6 +96,13 @@ void ofApp::keyPressed(int key)
 
 		initialize();
 
+		displayInstruction = false;
+
+	}
+
+	if (!gameRules.getIsPlaying() && (key == 'i' || key == 'I'))
+	{
+		displayInstruction = true;
 	}
 }
 
@@ -105,8 +112,12 @@ void ofApp::keyReleased(int key) {
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y) {
-	player.move(mouseX);
+void ofApp::mouseMoved(int x, int y)
+{
+	if(gameRules.getIsPlaying())
+	{
+		player.move(mouseX);
+	}	
 }
 
 //--------------------------------------------------------------
