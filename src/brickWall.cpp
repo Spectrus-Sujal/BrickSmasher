@@ -25,6 +25,7 @@ void BrickWall::checkCollision(Ball &ball, Player& player)
 			lastBrickDestroyed = wall[b];
 
 			wall.erase(wall.begin() + b);
+
 			break;
 		}
 	}
@@ -38,7 +39,6 @@ Brick BrickWall::getLastDestroyedBrick() const
 void BrickWall::resizeWalls(const std::vector<Brick>& w)
 {
 	wall = w;
-	std::cout << "done\n";
 }
 
 int BrickWall::getBricksDestroyed() const

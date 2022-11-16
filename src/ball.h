@@ -14,7 +14,7 @@ private:
 	// Variables used to determine the balls default values
 	Point coordinate;
 	Point speed;
-	int radius;
+	double radius;
 
 	//method to check if the ball has hit an edge
 	void bounce();
@@ -22,16 +22,16 @@ private:
 public:
 
 	// Constructors
-	Ball(const Point &c, const Point &s, int r);
-	Ball(int cx, int cy, int sx, int sy, int r);
+	Ball(const Point &c, const Point &s, double r);
+	Ball(double cx, double cy, double sx, double sy, double r);
 
 	//Draw the ball on canvas
 	void drawBall() const;
 
 	//Accessors for private values
-	int getX() const;
-	int getY() const;
-	int getRadius() const;
+	double getX() const;
+	double getY() const;
+	double getRadius() const;
 	bool getFirstTopBounce() const;
 
 	//move the ball and check if it reaches an edge

@@ -9,6 +9,7 @@ public:
 	{
 		Yellow, Green, Orange, Red
 	};
+
 private:
 	
 	level lvl;

@@ -7,7 +7,7 @@
  * \param si Size x,y
  * \param sp Horizontal Speed
  */
-Player::Player(const Point& c, const Point& si, int sp) : Paddle{c, si}, speed{sp} {}
+Player::Player(const Point& c, const Point& si, double sp) : Paddle{c, si}, speed{sp} {}
 
 /**
  * \brief Constructor for Player using only ints
@@ -17,7 +17,7 @@ Player::Player(const Point& c, const Point& si, int sp) : Paddle{c, si}, speed{s
  * \param siy Size y
  * \param sp Horizontal Speed
  */
-Player::Player(int cx, int cy, int six, int siy, int sp) : Paddle { cx, cy, six, siy }
+Player::Player(double cx, double cy, double six, double siy, double sp) : Paddle { cx, cy, six, siy }
 {
 	speed = sp;
 }

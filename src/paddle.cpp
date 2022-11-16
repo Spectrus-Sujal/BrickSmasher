@@ -2,29 +2,28 @@
 
 Paddle::Paddle(Point c, Point s) : coordinate{ c }, size{ s } {}
 
-Paddle::Paddle(int cx, int cy, int six, int siy)
+Paddle::Paddle(double cx, double cy, double six, double siy)
 {
-	coordinate.x = cx;
-	coordinate.y = cy;
-	size.x = six;
-	size.y = siy;
+	coordinate = Point{ cx, cy };
+	size = Point{ six, siy };
 }
 
-int Paddle::getX() const
+double Paddle::getX() const
 {
 	return coordinate.x;
 }
 
-int Paddle::getY() const
+double Paddle::getY() const
 {
 	return coordinate.y;
 }
 
-int Paddle::getSizeX() const
+double Paddle::getSizeX() const
 {
 	return size.x;
 }
-int Paddle::getSizeY() const
+
+double Paddle::getSizeY() const
 {
 	return size.y;
 }

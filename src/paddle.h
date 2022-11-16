@@ -15,13 +15,13 @@ public:
 
 	//Constructor
 	Paddle(Point c, Point s);
-	Paddle(int cx, int cy, int six, int siy);
+	Paddle(double cx, double cy, double six, double siy);
 
 	// Getters
-	int getX() const;
-	int getY() const;
-	int getSizeX() const;
-	int getSizeY() const;
+	double getX() const;
+	double getY() const;
+	double getSizeX() const;
+	double getSizeY() const;
 
 	void changeX(int delta);
 	void changeSizeX(int delta);

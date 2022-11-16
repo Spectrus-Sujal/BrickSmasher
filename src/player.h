@@ -10,15 +10,15 @@
 class Player : Paddle
 {
 private:
-	int speed;
-	int points = 0;
+	double speed;
+	double points = 0;
 	bool isHalf = false;
 	ofColor playerColor;
 
 public:
 
-	Player(const Point &c, const Point &si, int sp);
-	Player(int cx, int cy, int six, int siy, int sp);
+	Player(const Point &c, const Point &si, double sp);
+	Player(double cx, double cy, double six, double siy, double sp);
 
 	void move(bool moveLeft);
 

@@ -2,16 +2,14 @@
 #include "ball.h"
 
 //Constructor 1
-Ball::Ball(const Point &c, const Point &s, int r) : coordinate{ c }, speed{ s }, radius{ r } {}
+Ball::Ball(const Point &c, const Point &s, double r) : coordinate{ c }, speed{ s }, radius{ r } {}
 
 //Constructor 2
-Ball::Ball(int cx, int cy, int sx, int sy, int r)
+Ball::Ball(double cx, double cy, double sx, double sy, double r)
 {
 	//Assign individual values
-	coordinate.x = cx;
-	coordinate.y = cy;
-	speed.x = sx;
-	speed.y = sy;
+	coordinate = Point{ cx, cy };
+	speed = Point{ sx, sy };
 	radius = r;
 }
 
@@ -25,17 +23,17 @@ void Ball::drawBall() const
 
 // Accessors
 ///////////////////
-int Ball::getX() const
+double Ball::getX() const
 {
 	return coordinate.x;
 }
 
-int Ball::getY() const
+double Ball::getY() const
 {
 	return coordinate.y;
 }
 
-int Ball::getRadius() const
+double Ball::getRadius() const
 {
 	return radius;
 }

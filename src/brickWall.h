@@ -12,8 +12,6 @@ private:
 
 	std::vector<Brick> wall;
 	int bricksDestroyed = 0;
-	bool firstOrange {true};
-	bool firstRed{ true };
 
 	Brick lastBrickDestroyed {0, 0, 0, 0, Brick::level::Yellow};
 

@@ -34,7 +34,7 @@ public:
 
 	Point coord{ 500, 500 };
 	Point speed{ 2, -2 };
-	int ballSize{ 5 };
+	double ballSize{ 5 };
 
 	Ball ball{ coord, speed, ballSize };
 
@@ -42,10 +42,10 @@ public:
 
 	BrickWall brickWall{walls};
 
-	int playerStart{500};
-	int playerSizeX{100};
-	int playerSizeY{20};
-	int playerSpeed{ 20 };
+	double playerStart{500};
+	double playerSizeX{100};
+	double playerSizeY{20};
+	double playerSpeed{ 20 };
 
 	Player player {playerStart, ofGetHeight() - playerSizeY, playerSizeX, playerSizeY, playerSpeed};
 

@@ -38,8 +38,8 @@ void ofApp::resetBricks(std::vector<Brick>& bricks)
 
 		for (auto i{ 0 }; i < 14; ++i)
 		{
-			Point coordiante{ ((ofGetWidth() / 14) * i) + 3, (20 * walling) };
-			Point size{ (ofGetWidth() / 15) , 10 };
+			Point coordiante{ ((ofGetWidth() / 14.0) * i) + 3, (20.0 * walling) };
+			Point size{ (ofGetWidth() / 15.0) , 10.0};
 
 			bricks.emplace_back(coordiante, size, lvl);
 		}
@@ -97,7 +97,6 @@ void ofApp::keyPressed(int key)
 		initialize();
 
 		displayInstruction = false;
-
 	}
 
 	if (!gameRules.getIsPlaying() && (key == 'i' || key == 'I'))
