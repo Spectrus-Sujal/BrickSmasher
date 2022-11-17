@@ -3,8 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-	gui.setup();
-	gui.add(playGame.setup("Play"));
+	initialize();
 }
 
 void ofApp::resetBricks(std::vector<Brick>& bricks)
@@ -62,6 +61,7 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
+
 	if (gameRules.getIsPlaying())
 	{
 		player.drawPlayer();
@@ -72,6 +72,7 @@ void ofApp::draw()
 	else
 	{
 		gameRules.displayScreen(displayInstruction);
+
 		if(playGame)
 		{
 			resetBricks(walls);

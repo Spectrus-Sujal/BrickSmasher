@@ -52,16 +52,18 @@ public:
 
 	Rules gameRules {};
 
+	ofxButton playGame;
+	ofxPanel gui;
+
 	void initialize()
 	{
 		brickWall = BrickWall{ walls };
 		ball = Ball{ coord, speed, ballSize };
 		player = Player{ playerStart, ofGetHeight() - playerSizeY, playerSizeX, playerSizeY, playerSpeed };
+		gui.setup();
+		gui.add(playGame.setup("Play"));
 	}
 
 	bool displayInstruction{ false };
-
-	ofxButton playGame;
-	ofxPanel gui;
 
 };
