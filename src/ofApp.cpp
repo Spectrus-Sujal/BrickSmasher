@@ -3,7 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
-
+	gui.setup();
+	gui.add(playGame.setup("Play"));
 }
 
 void ofApp::resetBricks(std::vector<Brick>& bricks)
@@ -71,6 +72,20 @@ void ofApp::draw()
 	else
 	{
 		gameRules.displayScreen(displayInstruction);
+		if(playGame)
+		{
+			resetBricks(walls);
+			brickWall.resizeWalls(walls);
+
+			gameRules.startGame();
+
+			initialize();
+
+			displayInstruction = false;
+			
+		}
+
+		gui.draw();
 	}
 }
 
@@ -85,18 +100,6 @@ void ofApp::keyPressed(int key)
 	if (key == 'd' || key == 'D')
 	{
 		player.move(false);
-	}
-
-	if(!gameRules.getIsPlaying() && (key == 's' || key == 'S'))
-	{
-		resetBricks(walls);
-		brickWall.resizeWalls(walls);
-
-		gameRules.startGame();
-
-		initialize();
-
-		displayInstruction = false;
 	}
 
 	if (!gameRules.getIsPlaying() && (key == 'i' || key == 'I'))

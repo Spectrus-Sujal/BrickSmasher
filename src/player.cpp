@@ -51,9 +51,10 @@ void Player::move(bool moveLeft)
 
 void Player::move(int x)
 {
-	if ((x + (getSizeX() / 2) <= ofGetWidth()) && x - (getSizeX() / 2) >= 0)
+	int halfSize = (getSizeX() / 2);
+	if ((x + halfSize <= ofGetWidth()) && x - halfSize >= 0)
 	{
-		changeX(x - (getX() + getSizeX() / 2));
+		changeX(x - (getX() + halfSize));
 	}
 }
 

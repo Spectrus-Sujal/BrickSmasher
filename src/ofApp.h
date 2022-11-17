@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxGui.h"
 #include "point.h"
 #include "paddle.h"
 #include "brick.h"
@@ -59,5 +60,8 @@ public:
 	}
 
 	bool displayInstruction{ false };
+
+	ofxButton playGame;
+	ofxPanel gui;
 
 };
