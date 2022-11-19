@@ -1,10 +1,10 @@
 ﻿
 #include "ball.h"
 
-//Constructor 1
+//Point Constructor
 Ball::Ball(const Point &c, const Point &s, double r) : coordinate{ c }, speed{ s }, radius{ r } {}
 
-//Constructor 2
+//Double Constructor
 Ball::Ball(double cx, double cy, double sx, double sy, double r)
 {
 	//Assign individual values
@@ -13,20 +13,21 @@ Ball::Ball(double cx, double cy, double sx, double sy, double r)
 	radius = r;
 }
 
-//Draw the ball
+
 void Ball::drawBall() const
 {
-	// Circle at the ball's position with the radius
+	// Set the balls color
 	ofSetColor(200);
+	// Draw a circle using coordinate and radius
 	ofDrawCircle(getX(), getY(), getRadius());
 }
 
-// Accessors
-///////////////////
+
 double Ball::getX() const
 {
 	return coordinate.x;
 }
+
 
 double Ball::getY() const
 {
@@ -37,48 +38,41 @@ double Ball::getRadius() const
 {
 	return radius;
 }
-//////////////////
 
-// Bounce the ball off of the ends of canvas
+
 void Ball::bounce()
 {
-	//Check if the ball is near the left or right edge
+	// Check if the ball is near the left or right edge
 	if (getX() + getRadius() >= ofGetWidth() || getX() - getRadius() <= 0)
 	{
+		// Flip Directions
 		flipX();
+
+		// Make sure the ball is no longer on the edge
+		if(getX() + getRadius() >= ofGetWidth()) coordinate.x = ofGetWidth() - getRadius() - 1;
+
+		if(getX() + getRadius() <= 0) coordinate.x = getRadius() + 1;
+
 	}
 
-	//Check top and bottom
+	// Check top edge
 	if (getY() - getRadius() <= 0)
 	{
 		flipY();
+
+		if(getY() - getRadius() <= 0) coordinate.y = getRadius() + 1;
 	}
 }
 
 void Ball::move()
 {
-	// Move it by it's speed
-	// negative value = going backwards
+	// Move Ball by speed
+	// negative value = going Left
 	coordinate.x += speed.x;
 	coordinate.y += speed.y;
 
-	//check edges
+	// Check edges
 	bounce();
-
-	if(getY() + getRadius() < 0)
-	{
-		coordinate.y = 0 + getRadius();
-	}
-
-	if (getX() + getRadius() < 0)
-	{
-		coordinate.x = 0 + getRadius();
-	}
-
-	if (getX() - getRadius() > ofGetWidth())
-	{
-		coordinate.x = ofGetWidth() - getRadius();
-	}
 }
 
 void Ball::flipY()
@@ -88,7 +82,7 @@ void Ball::flipY()
 
 void Ball::flipX()
 {
-	// make it go opposite direction
+	// Make it go opposite direction
 	speed.x *= -1;
 }
 
