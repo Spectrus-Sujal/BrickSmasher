@@ -3,7 +3,7 @@
 
 Brick::Brick(Point c, Point s, level l) : Paddle{c, s}, lvl{l} {}
 
-Brick::Brick(int cx, int cy, int six, int siy, level l) : Paddle{ cx, cy, six, siy }
+Brick::Brick(double cx, double cy, double six, double siy, level l) : Paddle{ cx, cy, six, siy }
 {
 	lvl = l;
 }
