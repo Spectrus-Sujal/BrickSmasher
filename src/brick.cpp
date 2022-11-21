@@ -1,6 +1,9 @@
 ﻿
 #include "brick.h"
 
+
+// Call the constructor from Paddle in paddle.h
+// Then assign lvl
 Brick::Brick(Point c, Point s, level l) : Paddle{c, s}, lvl{l} {}
 
 Brick::Brick(double cx, double cy, double six, double siy, level l) : Paddle{ cx, cy, six, siy }

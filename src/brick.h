@@ -5,6 +5,7 @@
 /**
  * \brief The rectangular Brick that the player will try to destroy
  *		and earn points from
+ *		Derives behavior from class Paddle in paddle.h
  */
 class Brick : public Paddle
 {
