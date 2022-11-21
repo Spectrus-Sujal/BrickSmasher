@@ -46,6 +46,11 @@ Brick BrickWall::getLastDestroyedBrick() const
 	return lastBrickDestroyed;
 }
 
+bool BrickWall::allBricksDestroyed() const
+{
+	return wall.size() <= 0;
+}
+
 void BrickWall::resizeWalls(const std::vector<Brick>& w)
 {
 	// Assign w to wall

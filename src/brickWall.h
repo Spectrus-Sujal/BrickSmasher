@@ -36,6 +36,11 @@ public:
 	 */
 	int getBricksDestroyed() const;
 
+	/** \breif Access if all Bricks are destroyed
+		\return Value of type bool
+	*/
+	bool allBricksDestroyed() const;
+
 	/**
 	 * \brief Access the last Brick removed from wall
 	 * \return Value of type Brick

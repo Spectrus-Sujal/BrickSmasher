@@ -13,7 +13,7 @@ void ofApp::resetBricks(std::vector<Brick>& bricks)
 	bricks.clear();
 
 	// Start to assign new values
-	for (auto walling{ 0 }; walling < 8; ++walling)
+	for (auto walling{ 0 }; walling < wallLength; ++walling)
 	{
 		// Assign a level based on the vertical position
 		Brick::level lvl;
@@ -36,20 +36,22 @@ void ofApp::resetBricks(std::vector<Brick>& bricks)
 
 		case 6:
 		case 7:
+		default:
 			lvl = Brick::level::Yellow;
 			break;
 		}
 
-		for (auto i{ 0 }; i < 14; ++i)
+		for (auto i{ 0 }; i < wallWidth; ++i)
 		{
 			// Make a new Brick object
-			Point coordiante{ ((ofGetWidth() / 14.0) * i) + 3, (20.0 * walling) };
-			Point size{ (ofGetWidth() / 15.0) , 10.0};
+			Point coordiante{ ((ofGetWidth() / wallWidth) * i) + 3, (20.0 * walling) };
+			Point size{ (ofGetWidth() / (wallWidth + 1)) , 10.0};
 
 			// Declare and add it to the end of bricks
 			bricks.emplace_back(coordiante, size, lvl);
 		}
 	}
+
 }
 
 //--------------------------------------------------------------

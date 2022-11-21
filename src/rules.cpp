@@ -15,7 +15,7 @@ void Rules::update(BrickWall& bw, Ball& ball, Player& player)
 	}
 
 	// Check if the game has ended
-	checkState();
+	checkState(bw.allBricksDestroyed());
 }
 
 // Check if the ball meets any conditions
@@ -42,7 +42,7 @@ void Rules::checkBall(Ball& ball, Player& player)
 	}
 }
 
-void Rules::checkBricks(BrickWall& bw, Ball& ball,Player& player)
+void Rules::checkBricks(BrickWall& bw, Ball& ball, Player& player)
 {
 	// Update the amount of destroyed bricks
 	destroyedBricks = bw.getBricksDestroyed();
@@ -84,7 +84,7 @@ bool Rules::getIsPlaying() const
 }
 
 
-void Rules::checkState()
+void Rules::checkState(bool allBricksDestroyed)
 {
 	// Check if the game is ending
 	if(lives <= 0)
@@ -93,7 +93,7 @@ void Rules::checkState()
 		loseGame();
 	}
 
-	if(destroyedBricks >= 112)
+	if(allBricksDestroyed)
 	{
 		winGame();
 	}

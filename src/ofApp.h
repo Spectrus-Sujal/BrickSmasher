@@ -52,6 +52,8 @@ public:
 	Ball ball{ ballCoord, ballSpeed, ballSize };
 
 	// Vector of type Brick used for BrickWall
+	int wallLength { 8 };
+	int wallWidth { 14 };
 	std::vector<Brick> walls;
 
 	// BrickWall with walls as constructor
@@ -81,6 +83,16 @@ public:
 		player = Player{ playerStart, ofGetHeight() - playerSizeY, playerSizeX, playerSizeY, playerSpeed };
 		gui.setup();
 		gui.add(playGame.setup("Play"));
+
+		if(wallLength < 1)
+		{
+			wallLength = 1;
+		}
+
+		if(wallWidth < 1)
+		{
+			wallWidth = 1;
+		}
 	}
 
 	// Keep track of Instructions

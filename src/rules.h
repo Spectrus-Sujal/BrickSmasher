@@ -70,8 +70,9 @@ private:
 	/**
 	* \brief Check if the game has ended and if so
 	*		has the player won or lost
+	* \param allBricksDestroyed: Value of type bool
 	*/
-	void checkState();
+	void checkState(bool allBricksDestroyed);
 
 	/**
 	* \brief Change end and game status
