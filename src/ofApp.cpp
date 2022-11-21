@@ -3,15 +3,19 @@
 //--------------------------------------------------------------
 void ofApp::setup()
 {
+	// Assign all values
 	initialize();
 }
 
 void ofApp::resetBricks(std::vector<Brick>& bricks)
 {
+	// Make sure it's empty
 	bricks.clear();
 
+	// Start to assign new values
 	for (auto walling{ 0 }; walling < 8; ++walling)
 	{
+		// Assign a level based on the vertical position
 		Brick::level lvl;
 		switch (walling)
 		{
@@ -38,9 +42,11 @@ void ofApp::resetBricks(std::vector<Brick>& bricks)
 
 		for (auto i{ 0 }; i < 14; ++i)
 		{
+			// Make a new Brick object
 			Point coordiante{ ((ofGetWidth() / 14.0) * i) + 3, (20.0 * walling) };
 			Point size{ (ofGetWidth() / 15.0) , 10.0};
 
+			// Declare and add it to the end of bricks
 			bricks.emplace_back(coordiante, size, lvl);
 		}
 	}
@@ -49,10 +55,12 @@ void ofApp::resetBricks(std::vector<Brick>& bricks)
 //--------------------------------------------------------------
 void ofApp::update()
 {
+	// Gamehas not ended
 	if (gameRules.getIsPlaying())
 	{
+		// Update all variables
 		ball.move();
-		brickWall.checkCollision(ball, player);
+		brickWall.checkCollision(ball);
 		player.checkCollision(ball);
 		gameRules.update(brickWall, ball, player);
 	}
@@ -61,9 +69,10 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-
+	// Game not ended
 	if (gameRules.getIsPlaying())
 	{
+		// Draw the game components
 		player.drawPlayer();
 		brickWall.drawBricks();
 		ball.drawBall();
@@ -71,10 +80,15 @@ void ofApp::draw()
 	}
 	else
 	{
+		// Dispaly the Start menu or instructions
+			// Based on displayInstruction
+
 		gameRules.displayScreen(displayInstruction);
 
+		// if play is pressed
 		if(playGame)
 		{
+			// Reset all variables
 			resetBricks(walls);
 			brickWall.resizeWalls(walls);
 
@@ -86,6 +100,7 @@ void ofApp::draw()
 			
 		}
 
+		// Draw the GUI
 		gui.draw();
 	}
 }
@@ -93,6 +108,7 @@ void ofApp::draw()
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) 
 {
+	// Move the player based on user input
 	if (key == 'a' || key == 'A')
 	{
 		player.move(true);
@@ -103,6 +119,7 @@ void ofApp::keyPressed(int key)
 		player.move(false);
 	}
 
+	// If given the input, Display the instructions if game is not playing
 	if (!gameRules.getIsPlaying() && (key == 'i' || key == 'I'))
 	{
 		displayInstruction = true;
@@ -117,8 +134,10 @@ void ofApp::keyReleased(int key) {
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y)
 {
+	// If game is still playing
 	if(gameRules.getIsPlaying())
 	{
+		// Move the player to Mouse X position
 		player.move(mouseX);
 	}	
 }

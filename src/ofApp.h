@@ -1,3 +1,12 @@
+/*
+* 
+*	A recreation of the classic Brick Breaker game made using Open FrameWorks
+*	with custom rules added to make the game feel more challenging
+* 
+*	- by Sujal Naroia
+*
+*/
+
 #pragma once
 
 #include "ofMain.h"
@@ -30,40 +39,51 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
+	// Assign new values to bricks
 	void resetBricks(std::vector<Brick>& bricks);
 
-
-	Point coord{ 500, 500 };
-	Point speed{ 2, -2 };
+/////////////// Declare all variables //////////////
+	// Assigned valus for Ball
+	Point ballCoord{ 500, 500 };
+	Point ballSpeed{ 2, -2 };
 	double ballSize{ 5 };
 
-	Ball ball{ coord, speed, ballSize };
+	// Create the Ball
+	Ball ball{ ballCoord, ballSpeed, ballSize };
 
+	// Vector of type Brick used for BrickWall
 	std::vector<Brick> walls;
 
+	// BrickWall with walls as constructor
 	BrickWall brickWall{walls};
 
+	// Values for Player
 	double playerStart{500};
 	double playerSizeX{100};
 	double playerSizeY{20};
 	double playerSpeed{ 20 };
 
+	// Make Player
 	Player player {playerStart, ofGetHeight() - playerSizeY, playerSizeX, playerSizeY, playerSpeed};
 
+	// Make Rules
 	Rules gameRules {};
 
+	// Create the GUI elements
 	ofxButton playGame;
 	ofxPanel gui;
 
+	// Reassign values for all game variable
 	void initialize()
 	{
 		brickWall = BrickWall{ walls };
-		ball = Ball{ coord, speed, ballSize };
+		ball = Ball{ ballCoord, ballSpeed, ballSize };
 		player = Player{ playerStart, ofGetHeight() - playerSizeY, playerSizeX, playerSizeY, playerSpeed };
 		gui.setup();
 		gui.add(playGame.setup("Play"));
 	}
 
+	// Keep track of Instructions
 	bool displayInstruction{ false };
 
 };
