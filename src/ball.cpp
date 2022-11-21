@@ -56,11 +56,11 @@ void Ball::bounce()
 	}
 
 	// Check top edge
-	if (getY() - getRadius() <= 0)
+	if (getY() - getRadius() < 0)
 	{
 		flipY();
 
-		if(getY() - getRadius() <= 0) coordinate.y = getRadius() + 1;
+		if(getY() - getRadius() <= 0) coordinate.y = getRadius();
 	}
 }
 
