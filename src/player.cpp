@@ -42,12 +42,14 @@ void Player::move(int x)
 {
 	// Get the center X of the player
 	int halfSize = (getSizeX() / 2);
+
+	// Change the X based on the center
+	changeX(x - (getX() + halfSize));
+
 	// Check is the new Player X is within the the canvas bounds
-	if ((x + halfSize <= ofGetWidth()) && x - halfSize >= 0)
-	{
-		// Change the X based on the center
-		changeX(x - (getX() + halfSize));
-	}
+	if (x + halfSize >= ofGetWidth()) changeX(ofGetWidth() - (x + halfSize));
+	else if (x - halfSize <= 0) changeX(0 - (x - halfSize));
+
 }
 
 void Player::half()
