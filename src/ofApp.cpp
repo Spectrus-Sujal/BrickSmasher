@@ -57,7 +57,7 @@ void ofApp::resetBricks(std::vector<Brick>& bricks)
 //--------------------------------------------------------------
 void ofApp::update()
 {
-	// Gamehas not ended
+	// Game has not ended
 	if (gameRules.getIsPlaying())
 	{
 		// Update all variables
@@ -65,6 +65,10 @@ void ofApp::update()
 		brickWall.checkCollision(ball);
 		player.checkCollision(ball);
 		gameRules.update(brickWall, ball, player);
+	}
+	else
+	{
+		gui.setPosition(ofGetWidth() * 0.25, ofGetHeight() * 0.75);
 	}
 }
 

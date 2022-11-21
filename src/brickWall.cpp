@@ -35,7 +35,7 @@ void BrickWall::checkCollision(Ball &ball)
 			// Remove the Brick
 			wall.erase(wall.begin() + b);
 
-			// top the loop
+			// Stop the loop
 			break;
 		}
 	}
